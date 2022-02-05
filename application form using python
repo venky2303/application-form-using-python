@@ -1,0 +1,140 @@
+from tkinter import *
+import tkinter
+from tkinter import filedialog as fd
+from tkinter.messagebox import showinfo
+root=Tk()
+root.title("Form")
+root.configure(bg="white")
+l0=Label(root,text="APPLICATION FORM",font=30,bg="skyblue",fg="red").grid(row=1,column=4)
+
+#PROGRAME FIRST HALF PART
+l1=Label(root,text="NAME:",font=20,padx=15).grid(row=2,column=0)
+l2=Label(root,text="SEX:",font=10).grid(row=3,column=0)
+l3=Label(root,text="EMAIL ID:",font=10).grid(row=4,column=0)
+l4=Label(root,text="MOBILE NO:",font=10).grid(row=5,column=0)
+l5=Label(root,text="ADDRESS:",font=10).grid(row=6,column=0)
+l6=Label(root,text="PHONE NO:",font=10).grid(row=6,column=5)
+# SPECIAL WIDGETS USED LABELS
+l11=Label(root,text="AGE:",font=10).grid(row=7,column=0)
+l12=Label(root,text="DATE OF BIRTH:",font=10).grid(row=8,column=5)
+l7=Label(root,text="FATHER NAME:",font=10).grid(row=2,column=5)
+l8=Label(root,text="MOTHER NAME:",font=10).grid(row=3,column=5)
+l9=Label(root,text="PINCODE:",font=10).grid(row=4,column=5)
+l10=Label(root,text="NATIONALITY:",font=10).grid(row=5,column=5)
+l13=Label(root,text="HEIGHT(in cm):",font=10).grid(row=8,column=0)
+l14=Label(root,text="HOBBIES:",font=10).grid(row=9,column=0)
+l15=Label(root,text="ROLL NO:",font=10).grid(row=7,column=5)
+
+#SECOND HALF PART
+l16=Label(root,text="COLLEGE NAME:",font=10).grid(row=10,column=0)
+l17=Label(root,text="SUBJECT:",font=10).grid(row=10,column=5)
+l18=Label(root,text="YEAR OF ADMISSION:",font=10,padx=20).grid(row=11,column=0)
+l19=Label(root,text="DIVISION OF INTERMEDIATE:",font=10).grid(row=11,column=5)
+l20=Label(root,text="RESUME:",font=10).grid(row=12,column=0)
+l21=Label(root,text="COUNTRY:",font=10).grid(row=12,column=5)
+
+#ENTRY WIDGETS FOR FIRST PART
+e=Entry(root,width=30,borderwidth=5).grid(row=2,column=1)
+e=Entry(root,width=30,borderwidth=5).grid(row=4,column=1)
+e=Entry(root,width=30,borderwidth=5).grid(row=5,column=1)
+e=Entry(root,width=30,borderwidth=5).grid(row=6,column=1)
+e=Entry(root,width=30,borderwidth=5).grid(row=6,column=6)
+# ENTRY WIDGETS FOR SECOND HALF PART  
+e=Entry(root,width=30,borderwidth=5).grid(row=2,column=6)
+e=Entry(root,width=30,borderwidth=5).grid(row=3,column=6)
+e=Entry(root,width=30,borderwidth=5).grid(row=4,column=6)
+e=Entry(root,width=30,borderwidth=5).grid(row=5,column=6)
+e=Entry(root,width=30,borderwidth=5).grid(row=7,column=1)
+e=Entry(root,width=30,borderwidth=5).grid(row=7,column=6)
+e=Entry(root,width=30,borderwidth=5).grid(row=10,column=1)
+
+#scale widgets
+scale=Scale(root,from_=100,to=220,orient=HORIZONTAL)
+scale.grid(row=8,column=1)
+
+#RADIObutton function
+rad1=Radiobutton(root,text="MALE",value=1,font=5).grid(row=3,column=1)
+rad2=Radiobutton(root,text="FEMALE",value=2,font=5,padx=15).grid(row=3,column=2)
+rad3=Radiobutton(root,text="OTHERS",value=3,font=5).grid(row=3,column=3)
+
+#spinbox
+s=Spinbox(root,from_=1,to=31,width=5).grid(row=8,column=6)
+s=Spinbox(root,from_=1,to=12,width=5).grid(row=8,column=7)
+s=Spinbox(root,from_=1990,to=2023,width=5).grid(row=8,column=8)
+
+s=Spinbox(root,from_=2000,to=2023,width=5).grid(row=11,column=1)
+
+#FRAME LAYOUT
+f=Frame(root,width=2,height=4).grid(row=0,column=0,padx=10,pady=5)
+
+# CHECKBUTTON FOR SUBJECT LABEL
+c1=Checkbutton(root,text="MATHS").grid(row=10,column=6)
+c2=Checkbutton(root,text="COA",padx=40).grid(row=10,column=7)
+c3=Checkbutton(root,text="PYTHON").grid(row=10,column=8)
+
+#menu button
+mb=Menubutton(root,text="OPTIONS",relief=RAISED)
+mb.grid(row=9,column=1)
+mb.menu= Menu(mb,tearoff=0)
+mb["menu"]= mb.menu
+Var1= IntVar()
+Var2= IntVar()
+Var3= IntVar()
+Var4= IntVar()
+Var5= IntVar()
+mb.menu.add_checkbutton(label="MOVIES",variable=Var1)
+mb.menu.add_checkbutton(label="MUSIC",variable=Var2)
+mb.menu.add_checkbutton(label="READING BOOKS",variable=Var3)
+mb.menu.add_checkbutton(label="CRICKET",variable=Var4)
+mb.menu.add_checkbutton(label="BROWSING INTERNET",variable=Var5)
+mb.grid(row=9,column=1)
+#MENU WIDGET FOR DIVISON OF ADMISSION
+mb=Menubutton(root,text=" SELECT OPTIONS",relief=RAISED)
+mb.grid(row=11,column=6)
+mb.menu= Menu(mb,tearoff=0)
+mb["menu"]= mb.menu
+Var1= IntVar()
+Var2= IntVar()
+Var3= IntVar()
+mb.menu.add_checkbutton(label="1st YEAR",variable=Var1)
+mb.menu.add_checkbutton(label="2nd YEAR",variable=Var2)
+mb.menu.add_checkbutton(label="OTHERS",variable=Var3)
+mb.grid(row=11,column=6)
+#CREATING UPLOAD FILE FOR RESUME ATRIBUTE
+def select_file():
+    filetypes = (
+        ('text files', '*.txt'),
+        ('All files', '*.*')
+    )
+
+    filename = fd.askopenfilename(
+        title='upload',
+        initialdir='/',
+        filetypes=filetypes)
+
+    showinfo(
+        title='Selected File',
+        message=filename
+    )
+# open button
+open_button = Button(
+    root,
+    text='UPLOAD FILE',
+    command=select_file
+)
+open_button.grid(row=12,column=1)
+#CREATING OPTION MENU FOR COUNTRY SELECTION
+options_list = ["RUSSIA", "CHINA", "AMERICA", "INDIA"]  
+value_inside = tkinter.StringVar(root)  
+value_inside.set("Select")  
+question_menu = tkinter.OptionMenu(root, value_inside, *options_list)
+question_menu.grid(row=12,column=6)
+def print_answers():
+    print("Selected Option: {}".format(value_inside.get()))
+    return None
+#BUTTON FOR SUBMITING AND CLEARING AND CANCELING
+btn=Button(root,text="SUBMIT",bg="red",fg="white").grid(row=13,column=6)
+btn=Button(root,text="CLEAR",bg="grey",fg="red").grid(row=13,column=4)
+btn=Button(root,text="CANCEL",bg="pink",fg="red").grid(row=13,column=3)
+root.mainloop()
+
